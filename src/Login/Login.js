@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { auth } from "../config";
 import Loading from "../assets/loading.gif";
 import importe from "../Login/import.css";
+import swal from 'sweetalert';
 
 function Login() {
   const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ function Login() {
     auth
       .signInWithEmailAndPassword(email, senha)
       .then(() => {
-        alert("Logado com sucesso");
+        swal("Logado com sucesso.");
         console.log("success!")
       })
       .catch((error) => {
@@ -32,7 +33,7 @@ function Login() {
          
     }}>
 
-      {loading && <img src={Loading} alt="Loading" style={{ marginLeft:"31%", position:"absolute", alignItems:"center", justifyContent:"center", height:"400px", width:"500px", marginTop:100 }} />}
+      {!loading && <img src={Loading} alt="Loading" style={{ borderRadius:50, marginLeft:"31%", position:"absolute", alignItems:"center", justifyContent:"center", height:"400px", width:"500px", marginTop:100 }} />}
       <header
         style={{
           padding: 10,
