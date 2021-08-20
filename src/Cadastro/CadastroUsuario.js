@@ -1,38 +1,13 @@
-import { useRef, useState } from "react";
-import { auth } from "../config";
-import Loading from "../assets/loading.gif";
-import swal from "sweetalert";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
-  const [loading, setLoading] = useState(false);
+function CadastroUsuario() {
+  const nomeRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const login = () => {
-    const email = emailRef?.current?.value;
-    const senha = passwordRef?.current?.value;
-    setLoading(true);
-    auth
-      .signInWithEmailAndPassword(email, senha)
-      .then(() => {
-        swal({
-          title: "AVISO",
-          text: "Logado com sucesso.",
-          icon: "success",
-        });
-        console.log("success!");
-       
-      })
-      .catch(() => {
-        swal({
-          title: "AVISO",
-          text: "Falha ao logar, verifique seus dados!",
-          icon: "error",
-        });
-        console.log("failed!");
-      });
-    setLoading(false);
-  };
+
+  // const cadastroUsuario = () => {};
+
   return (
     <div
       className="body"
@@ -42,22 +17,6 @@ function Login() {
         height: "650px",
       }}
     >
-      {loading && (
-        <img
-          src={Loading}
-          alt="Loading"
-          style={{
-            borderRadius: 50,
-            marginLeft: "31%",
-            position: "absolute",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "400px",
-            width: "500px",
-            marginTop: 150,
-          }}
-        />
-      )}
       <header
         style={{
           padding: 10,
@@ -69,7 +28,6 @@ function Login() {
           fontSize: "25px",
           color: "white",
           textShadow: "4px 2px 2px black",
-          boxShadow:"black 5px 2px 2px"
         }}
       >
         <h1>GOURMETIZA</h1>
@@ -85,7 +43,6 @@ function Login() {
             borderStyle: "double",
             borderWidth: "20px",
             borderColor: "rgba(255,0,0,0.9)",
-           
           }}
         >
           <table
@@ -98,10 +55,27 @@ function Login() {
             <tr>
               <td>
                 <label style={{ color: "Black", fontWeight: "bolder" }}>
+                  Nome:
+                </label>
+              </td>
+              <td>
+                <input
+                  type="nome"
+                  ref={nomeRef}
+                  placeholder="Digite seu nome"
+                  required
+                  style={{ flexDirection: "row", fontSize: "15px" }}
+                />
+              </td>
+            </tr>
+            <br />
+            <br />
+            <tr>
+              <td>
+                <label style={{ color: "Black", fontWeight: "bolder" }}>
                   Email:
                 </label>
               </td>
-
               <td>
                 <input
                   type="email"
@@ -123,8 +97,6 @@ function Login() {
                 </label>
               </td>
               <td>
-  
-
                 <input
                   required
                   type="password"
@@ -138,7 +110,7 @@ function Login() {
             </tr>
             <br />
             <br />
-            <tr style={{ display: "flex", flexDirection: "row" }}>
+            <tr>
               <td>
                 <Link
                   style={{
@@ -148,24 +120,23 @@ function Login() {
                     padding: 15,
                     cursor: "pointer",
                     alignItems: "center",
+                    fontSize: "20px",
                     color: "#000",
-                    fontSize: 20,
                     fontFamily: "arial",
                     fontWeight: "bolder",
                     textDecoration: "none",
-                    textShadow:"3px 1px 1px black",
-                    color:"white"
+                    color:"white",
+                    textShadow:"3px 1px 1px black"
                   }}
-                  to="/cadastro-usuario"
+                  to="/"
                 >
-                  CADASTRAR
+                  VOLTAR
                 </Link>
               </td>
               <td>
                 <input
-                  onClick={login}
-                  type="submit"
-                  value="LOGAR"
+                  type="button"
+                  value="CADASTRAR"
                   style={{
                     color: "#000",
                     fontSize: "20px",
@@ -178,9 +149,10 @@ function Login() {
                     cursor: "pointer",
                     alignItems: "center",
                     marginLeft: 15,
-                    textShadow:"3px 1px 1px black",
-                    color:"white"
+                    color:"white",
+                    textShadow:"3px 1px 1px black"
                   }}
+                  onClick={() => alert("Cadastrando")}
                 />
               </td>
             </tr>
@@ -190,5 +162,4 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
+export default CadastroUsuario;
