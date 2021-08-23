@@ -21,7 +21,7 @@ function Login() {
           icon: "success",
         });
         console.log("success!");
-       
+        window.location.href = "/Home";
       })
       .catch(() => {
         swal({
@@ -69,7 +69,7 @@ function Login() {
           fontSize: "25px",
           color: "white",
           textShadow: "4px 2px 2px black",
-          boxShadow:"black 5px 2px 2px"
+          boxShadow: "black 5px 2px 2px",
         }}
       >
         <h1>GOURMETIZA</h1>
@@ -85,7 +85,6 @@ function Login() {
             borderStyle: "double",
             borderWidth: "20px",
             borderColor: "rgba(255,0,0,0.9)",
-           
           }}
         >
           <table
@@ -109,7 +108,7 @@ function Login() {
                   placeholder="Digite seu email"
                   pattern=".+@globex\.com"
                   size="30"
-                  required
+                  required="required"
                   style={{ flexDirection: "row", fontSize: "15px" }}
                 />
               </td>
@@ -123,10 +122,8 @@ function Login() {
                 </label>
               </td>
               <td>
-  
-
                 <input
-                  required
+                  required="required"
                   type="password"
                   ref={passwordRef}
                   id="us_senha"
@@ -148,13 +145,13 @@ function Login() {
                     padding: 15,
                     cursor: "pointer",
                     alignItems: "center",
-                    color: "#000",
+                  
                     fontSize: 20,
                     fontFamily: "arial",
                     fontWeight: "bolder",
                     textDecoration: "none",
-                    textShadow:"3px 1px 1px black",
-                    color:"white"
+                    textShadow: "3px 1px 1px black",
+                    color: "white",
                   }}
                   to="/cadastro-usuario"
                 >
@@ -167,7 +164,7 @@ function Login() {
                   type="submit"
                   value="LOGAR"
                   style={{
-                    color: "#000",
+           
                     fontSize: "20px",
                     fontFamily: "arial",
                     fontWeight: "bolder",
@@ -178,8 +175,8 @@ function Login() {
                     cursor: "pointer",
                     alignItems: "center",
                     marginLeft: 15,
-                    textShadow:"3px 1px 1px black",
-                    color:"white"
+                    textShadow: "3px 1px 1px black",
+                    color: "white",
                   }}
                 />
               </td>

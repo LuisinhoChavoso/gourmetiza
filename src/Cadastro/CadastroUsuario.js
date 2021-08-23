@@ -1,12 +1,52 @@
-import { useRef } from "react";
+
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import { auth, database } from "../config";
 
 function CadastroUsuario() {
   const nomeRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const dataRef = useRef(null);
+  const ref = database.ref("usuarios");
 
-  // const cadastroUsuario = () => {};
+  const singUp = (e) => {
+    let nome = nomeRef?.current?.value;
+    let email = emailRef?.current?.value;
+    let password = passwordRef?.current?.value;
+    let dataNasc = dataRef?.current?.value;
+    
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((resp) => {
+        swal({
+          title:"Cadastrado",
+          text:"Cadastro Efetuado com Sucesso!!",
+          icon:"success"
+        })
+        const uid = resp?.user?.uid;
+        ref.child(uid).push({
+          nome,
+          email,
+          password,
+          dataNasc
+
+        });
+        window.location.href = "/Home";
+      })
+      .catch((e) => {
+        e?.code === "auth/weak-password"
+          ?swal({
+            title:"Atenção",
+            text:"Senhas deve conter no mínimo 6 dígitos",
+            icon:"warning",
+            ButtonColor: "rgba(255,0,0,0.9)",
+          })
+          : alert(e?.message);
+      });
+  };
 
   return (
     <div
@@ -62,13 +102,63 @@ function CadastroUsuario() {
                 <input
                   type="nome"
                   ref={nomeRef}
-                  placeholder="Digite seu nome"
-                  required
+                  placeholder="Digite seu Nome"
+                  required=" required"
+                  size="30"
                   style={{ flexDirection: "row", fontSize: "15px" }}
                 />
               </td>
             </tr>
             <br />
+            <tr>
+              <td>
+                <label style={{ color: "Black", fontWeight: "bolder" }}>
+                  Data de Nasc:
+                </label>
+              </td>
+              <td>
+                <input
+                  type="Date"
+             
+                   required="required"
+                  size="30"
+                  name="data"
+                  id="data"
+                  ref={dataRef}
+                  style={{
+                    flexDirection: "row",
+                    fontSize: "15px",
+                    textAlign: "left",
+                  }}
+                />
+              </td>
+            </tr>
+            <br />
+            <tr>
+              <td>
+                <input
+                  type="radio"
+                  required="required"
+                  size="30"
+                  name="F"
+                  id="F"
+                  style={{ flexDirection: "row", fontSize: "15px" }}
+                />
+                Feminino
+              </td>
+              <td>
+                <input
+                  type="radio"
+                  required="required"
+                  size="30"
+                  name="data"
+                  id="data"
+                  style={{ flexDirection: "row", fontSize: "15px" }}
+                />
+                Masculino
+              </td>
+            </tr>
+
             <br />
             <tr>
               <td>
@@ -80,16 +170,16 @@ function CadastroUsuario() {
                 <input
                   type="email"
                   ref={emailRef}
-                  placeholder="Digite seu email"
+                  placeholder="Digite seu Email"
                   pattern=".+@globex\.com"
                   size="30"
-                  required
+                  required="required"
                   style={{ flexDirection: "row", fontSize: "15px" }}
                 />
               </td>
             </tr>
             <br />
-            <br />
+
             <tr>
               <td>
                 <label style={{ color: "Black", fontWeight: "bolder" }}>
@@ -103,13 +193,14 @@ function CadastroUsuario() {
                   ref={passwordRef}
                   id="us_senha"
                   size="30"
+                  name="us_senha"
                   placeholder="Digite sua senha"
                   style={{ fontSize: "15px" }}
                 />
               </td>
             </tr>
             <br />
-            <br />
+
             <tr>
               <td>
                 <Link
@@ -121,12 +212,12 @@ function CadastroUsuario() {
                     cursor: "pointer",
                     alignItems: "center",
                     fontSize: "20px",
-                    color: "#000",
+                   
                     fontFamily: "arial",
                     fontWeight: "bolder",
                     textDecoration: "none",
-                    color:"white",
-                    textShadow:"3px 1px 1px black"
+                    color: "white",
+                    textShadow: "3px 1px 1px black",
                   }}
                   to="/"
                 >
@@ -135,10 +226,10 @@ function CadastroUsuario() {
               </td>
               <td>
                 <input
-                  type="button"
+                onClick={singUp}
+                  type="submit"
                   value="CADASTRAR"
                   style={{
-                    color: "#000",
                     fontSize: "20px",
                     fontFamily: "arial",
                     fontWeight: "bolder",
@@ -149,10 +240,10 @@ function CadastroUsuario() {
                     cursor: "pointer",
                     alignItems: "center",
                     marginLeft: 15,
-                    color:"white",
-                    textShadow:"3px 1px 1px black"
+                    color: "white",
+                    textShadow: "3px 1px 1px black",
                   }}
-                  onClick={() => alert("Cadastrando")}
+                  
                 />
               </td>
             </tr>
