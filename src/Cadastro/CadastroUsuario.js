@@ -1,4 +1,3 @@
-
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
@@ -16,34 +15,33 @@ function CadastroUsuario() {
     let email = emailRef?.current?.value;
     let password = passwordRef?.current?.value;
     let dataNasc = dataRef?.current?.value;
-    
+
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((resp) => {
-        swal({
-          title:"Cadastrado",
-          text:"Cadastro Efetuado com Sucesso!!",
-          icon:"success"
-        })
+      .then(async (resp) => {
         const uid = resp?.user?.uid;
         ref.child(uid).push({
           nome,
           email,
           password,
-          dataNasc
-
+          dataNasc,
+        });
+        await swal({
+          title: "Cadastrado",
+          text: "Cadastro Efetuado com Sucesso!!",
+          icon: "success",
         });
         window.location.href = "/Home";
       })
       .catch((e) => {
         e?.code === "auth/weak-password"
-          ?swal({
-            title:"Atenção",
-            text:"Senhas deve conter no mínimo 6 dígitos",
-            icon:"warning",
-            ButtonColor: "rgba(255,0,0,0.9)",
-          })
+          ? swal({
+              title: "Atenção",
+              text: "Senhas deve conter no mínimo 6 dígitos",
+              icon: "warning",
+              ButtonColor: "rgba(255,0,0,0.9)",
+            })
           : alert(e?.message);
       });
   };
@@ -119,8 +117,7 @@ function CadastroUsuario() {
               <td>
                 <input
                   type="Date"
-             
-                   required="required"
+                  required="required"
                   size="30"
                   name="data"
                   id="data"
@@ -212,7 +209,7 @@ function CadastroUsuario() {
                     cursor: "pointer",
                     alignItems: "center",
                     fontSize: "20px",
-                   
+
                     fontFamily: "arial",
                     fontWeight: "bolder",
                     textDecoration: "none",
@@ -226,7 +223,7 @@ function CadastroUsuario() {
               </td>
               <td>
                 <input
-                onClick={singUp}
+                  onClick={singUp}
                   type="submit"
                   value="CADASTRAR"
                   style={{
@@ -234,7 +231,7 @@ function CadastroUsuario() {
                     fontFamily: "arial",
                     fontWeight: "bolder",
                     display: "flex",
-                    backgroundColor: "rgba(255,0,0,0.9)",
+                    backgroundColor: "rgba(100,0,0,0.9)",
                     border: "#000",
                     padding: 15,
                     cursor: "pointer",
@@ -243,7 +240,6 @@ function CadastroUsuario() {
                     color: "white",
                     textShadow: "3px 1px 1px black",
                   }}
-                  
                 />
               </td>
             </tr>
