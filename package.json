@@ -12,10 +12,12 @@
     "material-ui": "^1.0.0-beta.47",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^17.0.2",
+    "react-confirm-alert": "^2.7.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "rodal": "^1.8.1",
     "sweetalert": "^2.1.2",
     "web-vitals": "^1.0.1"
   },
