@@ -231,7 +231,7 @@ function CadastroUsuario() {
                     fontFamily: "arial",
                     fontWeight: "bolder",
                     display: "flex",
-                    backgroundColor: "rgba(100,0,0,0.9)",
+                    backgroundColor: "rgba(225,0,0,0.9)",
                     border: "#000",
                     padding: 15,
                     cursor: "pointer",
