@@ -2,6 +2,7 @@ import React from "react";
 import { auth } from "../config";
 import  "./home.css"
 import swal from "sweetalert";
+import { Helmet } from 'react-helmet'
 
 function Home() {
   const signOut = () => {
@@ -29,9 +30,12 @@ function Home() {
         })
       });
   };
+  const titulo = 'Home'
   return (
     <div style={{}}>
-     
+     <Helmet>
+          <title>{ titulo }</title>
+        </Helmet>
 
       <ul>
   <li><a class="active" href=".\home">Home</a></li>

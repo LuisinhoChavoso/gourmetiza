@@ -3,23 +3,20 @@ import { auth } from "../config";
 import Loading from "../assets/loading.gif";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 
 function Login() {
   const [loading, setLoading] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const login = () => {
-    const email = emailRef?.current?.value;
-    const senha = passwordRef?.current?.value;
+  const email = emailRef?.current?.value;
+  const senha = passwordRef?.current?.value;
     setLoading(true);
     auth
       .signInWithEmailAndPassword(email, senha)
       .then(() => {
-        swal({
-          title: "AVISO",
-          text: "Logado com sucesso.",
-          icon: "success",
-        });
         console.log("success!");
         window.location.href = "/Home";
       })
@@ -33,6 +30,7 @@ function Login() {
       });
     setLoading(false);
   };
+  const titulo = 'Login'
   return (
     <div
       className="body"
@@ -42,7 +40,10 @@ function Login() {
         height: "650px",
       }}
     >
-      {loading && (
+      <Helmet>
+          <title>{ titulo }</title>
+        </Helmet>
+      { loading && (
         <img
           src={Loading}
           alt="Loading"
