@@ -41,12 +41,17 @@ function Home() {
           <title>{ titulo }</title>
         </Helmet>
 
-      <ul>
+      <ul onLoad={Swal.fire({
+          title:"AVISO",
+          text:"Esta é a home",
+          icon:"succsess",
+      })}>
   <li><a class="active" href=".\home"> Home </a></li>
   <li><a href=".\Listar" > Receitas </a></li>
   <li><a  href="#contact"> Contatos </a></li>
   <li style={{float:"right"}} onClick={() => signOut()} ><a href="#about">Sair</a></li>
 </ul>
+<h1>está é a home</h1>
    
 
     </div>
