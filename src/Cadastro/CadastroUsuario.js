@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import { auth, database } from "../config";
 
 function CadastroUsuario() {
@@ -27,7 +27,7 @@ function CadastroUsuario() {
           password,
           dataNasc,
         });
-        await swal({
+        await Swal.fire({
           title: "Cadastrado",
           text: "Cadastro Efetuado com Sucesso!!",
           icon: "success",
@@ -36,7 +36,7 @@ function CadastroUsuario() {
       })
       .catch((e) => {
         e?.code === "auth/weak-password"
-          ? swal({
+          ? Swal.fire({
               title: "Atenção",
               text: "Senhas deve conter no mínimo 6 dígitos",
               icon: "warning",

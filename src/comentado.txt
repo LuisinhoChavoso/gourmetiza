@@ -1,0 +1,30 @@
+// eslint-disable-next-line no-lone-blocks
+{/*
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    <Button variant="primary" onClick={ handleShow}> Receitas </Button>
+
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>NOVA RECEITA</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          SAIR
+        </Button>
+        <Button variant="primary" onClick={handleClose}>
+          CADASTRAR 
+        </Button>
+      </Modal.Footer>
+    </Modal>
+
+
+
+
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from "react-bootstrap/Modal"; */}
+     

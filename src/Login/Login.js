@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { auth } from "../config";
 import Loading from "../assets/loading.gif";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 
@@ -21,7 +21,7 @@ function Login() {
         window.location.href = "/Home";
       })
       .catch(() => {
-        swal({
+        Swal.fire({
           title: "AVISO",
           text: "Falha ao logar, verifique seus dados!",
           icon: "error",
