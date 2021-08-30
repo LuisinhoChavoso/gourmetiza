@@ -51,13 +51,15 @@ function Home() {
     textDecoration:"none", color:"white"
   }} class="active" href=".\home"> Home </a></li>
   <li><a href=".\Listar" > Receitas </a></li>
-  <li><a  href="#contact"> Contatos </a></li>
+  <li><a  href=".\contatos"> Contatos </a></li>
   <li style={{float:"right"}} onClick={() => signOut()} ><a href="#about">Sair</a></li>
 </ul>
 <h1 style={{
   textAlign:"center",
-}}>Bem vindo<script></script></h1>
-   
+}}>Bem vindo</h1>
+   <div>
+     <img src="..\assets\back.png" alt=""/>
+   </div>
 
     </div>
   );
