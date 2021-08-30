@@ -61,7 +61,7 @@ function Listar() {
           </a>
         </li>
         <li>
-          <a href="#contact"> Contatos </a>
+          <a href=".\Contatos"> Contatos </a>
         </li>
         <li style={{ float: "right" }} onClick={() => signOut()}>
           <a href="#about">Sair</a>
@@ -69,6 +69,7 @@ function Listar() {
       </ul>
       <Button
         style={{
+          
           fontWeight: "bolder",
           backgroundColor: "#EB0505",
           borderColor: "#EB0505",
@@ -90,13 +91,13 @@ function Listar() {
             <Modal.Title>NOVA RECEITA</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <label>Nome:</label>
+            <label  >Nome:</label>
             <br />
             <input
               type="text"
               name="nome_receita"
               id="nome_receita"
-              size="30"
+              size="60"
             />
             <br />
             <label>Ingredientes:</label>
@@ -106,12 +107,17 @@ function Listar() {
               name="ingredientes"
               id="ingredientes"
               size="50"
+              style={{width:"100%"}}
             />
             <br />
             <label>Preparo:</label>
             <br />
-            <textarea type="text" name="preparo" id="preparo" size="50" />
+            <textarea style={{width:"100%"}} type="text" name="preparo" id="preparo" size="50" />
+             <script>
+          $nome = document.getElementById['nome_receita'];
+          </script>
           </Modal.Body>
+         
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               SAIR
@@ -129,8 +135,9 @@ function Listar() {
           </Modal.Footer>
         </Modal>
       </center>
+      
     </>
   );
-}
+  }
 
 export default Listar;
