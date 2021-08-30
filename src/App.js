@@ -3,6 +3,7 @@ import Login from "./Login/Login";
 import Home from "./Home/home";
 import Listar from "./Listar/listar"
 import CadastroUsuario from "./Cadastro/CadastroUsuario";
+import Contatos from "./Contatos/contatos"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/cadastro-usuario" exact={true} component={CadastroUsuario} />
           <Route path="/home" exact={true} component={Home} />
           <Route path="/listar" exact={true} component={Listar} />
+          <Route path="/contatos" exact={true} component={Contatos} />
         </Switch>
       </div>
     </Router>
