@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { auth } from "../config";
 import Loading from "../assets/loading.gif";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 
@@ -21,7 +21,7 @@ function Login() {
         window.location.href = "/Home";
       })
       .catch(() => {
-        Swal.fire({
+        swal({
           title: "AVISO",
           text: "Falha ao logar, verifique seus dados!",
           icon: "error",
@@ -76,18 +76,21 @@ function Login() {
         <h1>GOURMETIZA</h1>
       </header>
       <center>
+        
         <fieldset
           style={{
             marginTop: 100,
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
-            width: 60,
+            width: "40%",
             borderStyle: "double",
             borderWidth: "20px",
             borderColor: "rgba(255,0,0,0.9)",
           }}
         >
+          <br/>
+          <br/>
           <table
             style={{
               display: "flex",
@@ -183,6 +186,8 @@ function Login() {
               </td>
             </tr>
           </table>
+          <br/>
+          <br/>
         </fieldset>
       </center>
     </div>
