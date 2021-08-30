@@ -1,7 +1,7 @@
 
 import { auth } from "../config";
 import  "./home.css"
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import { Helmet } from 'react-helmet'
 
 
@@ -10,12 +10,17 @@ function Home() {
   const signOut = () => {
     auth.signOut()
       .then(() => {
-        Swal.fire({
+        swal({
           title: "AVISO",
           text: "Deseja mesmo sair??",
           icon: "warning",
-          buttons: true,
-          dangerMode: true,
+          confirm: {
+            text: "OK",
+            value: true,
+            visible: true,
+            className: "",
+            closeModal: true
+          }
         })
         .then((funcsair) => {
           if (funcsair) {
@@ -25,7 +30,7 @@ function Home() {
         
       })
       .catch((error) => {
-        Swal.fire({
+        swal({
           title: "AVISO",
           text: "Não foi possivel sair, tente novamente",
           icon: "error",
@@ -41,17 +46,17 @@ function Home() {
           <title>{ titulo }</title>
         </Helmet>
 
-      <ul onLoad={Swal.fire({
-          title:"AVISO",
-          text:"Esta é a home",
-          icon:"succsess",
-      })}>
-  <li><a class="active" href=".\home"> Home </a></li>
+      <ul>
+  <li><a style={{
+    textDecoration:"none", color:"white"
+  }} class="active" href=".\home"> Home </a></li>
   <li><a href=".\Listar" > Receitas </a></li>
   <li><a  href="#contact"> Contatos </a></li>
   <li style={{float:"right"}} onClick={() => signOut()} ><a href="#about">Sair</a></li>
 </ul>
-<h1>está é a home</h1>
+<h1 style={{
+  textAlign:"center",
+}}>Bem vindo<script></script></h1>
    
 
     </div>
