@@ -16,9 +16,12 @@
     "react-confirm-alert": "^2.7.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-spring": "^9.0.0-rc.3",
     "rodal": "^1.8.1",
+    "styled-components": "^5.3.1",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.1.4",
     "web-vitals": "^1.0.1"
