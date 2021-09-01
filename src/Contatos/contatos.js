@@ -39,6 +39,9 @@ function Contatos() {
         <title>{titulo}</title>
       </Helmet>
       <ul>
+      <li>
+          <a href=".\teste"> Teste </a>
+        </li>
         <li>
           <a href=".\home"> Home </a>
         </li>

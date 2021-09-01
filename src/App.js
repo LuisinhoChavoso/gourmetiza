@@ -3,7 +3,8 @@ import Login from "./Login/Login";
 import Home from "./Home/home";
 import Listar from "./Listar/listar"
 import CadastroUsuario from "./Cadastro/CadastroUsuario";
-import Contatos from "./Contatos/contatos"
+import Contatos from "./Contatos/contatos";
+import Teste from "./Teste/teste";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/home" exact={true} component={Home} />
           <Route path="/listar" exact={true} component={Listar} />
           <Route path="/contatos" exact={true} component={Contatos} />
+          <Route path="/teste" exact={true} component={Teste} />
         </Switch>
       </div>
     </Router>

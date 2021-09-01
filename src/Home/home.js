@@ -47,6 +47,9 @@ function Home() {
         </Helmet>
 
       <ul>
+      <li>
+          <a href=".\teste"> Teste </a>
+        </li>
   <li><a style={{
     textDecoration:"none", color:"white"
   }} class="active" href=".\home"> Home </a></li>
