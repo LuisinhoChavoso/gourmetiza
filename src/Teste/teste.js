@@ -1,28 +1,29 @@
+import React, {useState} from "react"
 import { Helmet } from "react-helmet";
 import "bootstrap/dist/css/bootstrap.min.css";
 import swal from "sweetalert";
 import { auth } from "../config";
 import "../Contatos/contatos.css"
 import styled from "styled-components";
+import { Modal } from "../components/Modal";
+import { GlobalStyle } from "../globalStyle";
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-`
+`;
 const Button = styled.button`
 min-width:100px;
 padding:16px 32px;
 border-radius:4px;
 border: none;
-background: #141414;
+background: #FF0000;
 color: #FFF;
 font-size:24px;
 cursor:pointer;
-
-
-`
+`;
 
 const titulo = "Contatos";
 
@@ -52,6 +53,11 @@ function Teste() {
         });
       });
   };
+  const [showModal, setShowModal] = useState(false)
+
+  const openModal = () => {
+      setShowModal(prev => !prev)
+  }
   
   return (
     <>
@@ -59,23 +65,16 @@ function Teste() {
         <title>{titulo}</title>
       </Helmet>
       <ul>
-      <li>
-          <a class="active" style={{ textDecoration: "none", color: "white" }} href=".\teste"> Teste </a>
-        </li>
+      
         <li>
           <a href=".\home"> Home </a>
         </li>
         <li>
-          <a
-            
-            
-            href=".\Listar"
-          >
-          Receitas
-          </a>
+          <a style={{ textDecoration: "none", color: "white" }}
+            class="active" href=".\teste"> Receitas </a>
         </li>
         <li>
-          <a href="/Contatos" > Contatos </a>
+          <a href=".\Contatos"> Contatos </a>
         </li>
         <li style={{ float: "right" }} onClick={() => signOut()}>
           <a href="#about">Sair</a>
@@ -83,9 +82,11 @@ function Teste() {
       </ul>
    
         <Container>
-            <Button>
-                eu sou um modal
+            <Button onClick={openModal}>
+                +
             </Button>
+            <Modal showModal={showModal} setShowModal={setShowModal}/>
+            <GlobalStyle/>
         </Container>
 
     </>

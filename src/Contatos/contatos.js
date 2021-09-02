@@ -39,29 +39,21 @@ function Contatos() {
         <title>{titulo}</title>
       </Helmet>
       <ul>
-      <li>
-          <a href=".\teste"> Teste </a>
-        </li>
+      
         <li>
           <a href=".\home"> Home </a>
         </li>
         <li>
-          <a
-            
-            
-            href=".\Listar"
-          >
-          Receitas
-          </a>
+          <a  href=".\teste"> Receitas </a>
         </li>
         <li>
-          <a class="active" href="/Contatos" style={{ textDecoration: "none", color: "white" }}> Contatos </a>
+          <a style={{ textDecoration: "none", color: "white" }}
+            class="active" href=".\Contatos"> Contatos </a>
         </li>
         <li style={{ float: "right" }} onClick={() => signOut()}>
           <a href="#about">Sair</a>
         </li>
-      </ul>
-      <br/>
+      </ul><br/>
       <h1 style={{textAlign:"center"}}>Nós dê um feedBack</h1>
    <br/>
       <div class="container">

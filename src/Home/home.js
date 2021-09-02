@@ -46,17 +46,22 @@ function Home() {
           <title>{ titulo }</title>
         </Helmet>
 
-      <ul>
+        <ul>
+      
       <li>
-          <a href=".\teste"> Teste </a>
-        </li>
-  <li><a style={{
-    textDecoration:"none", color:"white"
-  }} class="active" href=".\home"> Home </a></li>
-  <li><a href=".\Listar" > Receitas </a></li>
-  <li><a  href=".\contatos"> Contatos </a></li>
-  <li style={{float:"right"}} onClick={() => signOut()} ><a href="#about">Sair</a></li>
-</ul>
+        <a style={{ textDecoration: "none", color: "white" }}
+          class="active" href=".\home"> Home </a>
+      </li>
+      <li>
+        <a  href=".\teste"> Receitas </a>
+      </li>
+      <li>
+        <a href=".\Contatos"> Contatos </a>
+      </li>
+      <li style={{ float: "right" }} onClick={() => signOut()}>
+        <a href="#about">Sair</a>
+      </li>
+    </ul>
 <h1 style={{
   textAlign:"center",
 }}>Bem vindo</h1>

@@ -47,21 +47,13 @@ function Listar() {
         <title>{titulo}</title>
       </Helmet>
       <ul>
-      <li>
-          <a href=".\teste"> Teste </a>
-        </li>
+      
         <li>
           <a href=".\home"> Home </a>
         </li>
         <li>
-          <a
-            style={{ textDecoration: "none", color: "white" }}
-            class="active"
-            href=".\Listar"
-          >
-            {" "}
-            Receitas{" "}
-          </a>
+          <a style={{ textDecoration: "none", color: "white" }}
+            class="active" href=".\teste"> Receitas </a>
         </li>
         <li>
           <a href=".\Contatos"> Contatos </a>
