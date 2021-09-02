@@ -1,34 +1,35 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import "bootstrap/dist/css/bootstrap.min.css";
 import swal from "sweetalert";
 import { auth } from "../config";
-import "../Contatos/contatos.css"
+import "../Contatos/contatos.css";
 import styled from "styled-components";
 import { Modal } from "../components/Modal";
 import { GlobalStyle } from "../globalStyle";
 
 const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `;
 const Button = styled.button`
-min-width:100px;
-padding:16px 32px;
-border-radius:4px;
-border: none;
-background: #FF0000;
-color: #FFF;
-font-size:24px;
-cursor:pointer;
+  min-width: 100px;
+  padding: 16px 32px;
+  border: none;
+  background: #ff0000;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
 `;
 
 const titulo = "Contatos";
 
 function Teste() {
-
   const signOut = () => {
     auth
       .signOut()
@@ -53,25 +54,30 @@ function Teste() {
         });
       });
   };
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
-      setShowModal(prev => !prev)
-  }
-  
+    setShowModal((prev) => !prev);
+  };
+
   return (
     <>
       <Helmet>
         <title>{titulo}</title>
       </Helmet>
       <ul>
-      
         <li>
           <a href=".\home"> Home </a>
         </li>
         <li>
-          <a style={{ textDecoration: "none", color: "white" }}
-            class="active" href=".\teste"> Receitas </a>
+          <a
+            style={{ textDecoration: "none", color: "white" }}
+            class="active"
+            href=".\teste"
+          >
+            {" "}
+            Receitas{" "}
+          </a>
         </li>
         <li>
           <a href=".\Contatos"> Contatos </a>
@@ -80,15 +86,14 @@ function Teste() {
           <a href="#about">Sair</a>
         </li>
       </ul>
-   
-        <Container>
-            <Button onClick={openModal}>
-                +
-            </Button>
-            <Modal showModal={showModal} setShowModal={setShowModal}/>
-            <GlobalStyle/>
-        </Container>
 
+      <Container>
+        <Button style={{}} onClick={openModal}>
+          +
+        </Button>
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+        <GlobalStyle />
+      </Container>
     </>
   );
 }
