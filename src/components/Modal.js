@@ -77,7 +77,7 @@ export const Modal = ({showModal, setShowModal}) => {
             {showModal ?(
                 <Background>
                     <ModalWrapper showModal={showModal}>
-                        <ModalImg src="./modal.jpg" alt='camera'/>
+                        <ModalImg ><img src="..\src\components\modal.jpg" alt=""/></ModalImg>
                         <ModalContent>
                             <form method="POST">
                                 <h1>Nova Receita</h1>
