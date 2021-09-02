@@ -135,32 +135,6 @@ function CadastroUsuario() {
             <br />
             <tr>
               <td>
-                <input
-                  type="radio"
-                  required="required"
-                  size="30"
-                  name="F"
-                  id="F"
-                  style={{ flexDirection: "row", fontSize: "15px" }}
-                />
-                Feminino
-              </td>
-              <td>
-                <input
-                  type="radio"
-                  required="required"
-                  size="30"
-                  name="data"
-                  id="data"
-                  style={{ flexDirection: "row", fontSize: "15px" }}
-                />
-                Masculino
-              </td>
-            </tr>
-
-            <br />
-            <tr>
-              <td>
                 <label style={{ color: "Black", fontWeight: "bolder" }}>
                   Email:
                 </label>
